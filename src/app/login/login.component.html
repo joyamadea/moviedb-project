@@ -1,0 +1,30 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Login</h1>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" name="username" #username>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" #password>
+  </div>
+  
+  <div *ngIf="!flag">
+      <div class="alert alert-danger" role="alert">
+         Username/Password incorrect
+        </div>
+  </div>
+  
+  <div style="margin-top:20px;">
+      <button class="btn btn-primary" style="margin-right:10px;" [routerLink]="['']">Home</button>
+      <button class="btn btn-primary"  (click)="login(username,password)">Login</button>
+  </div>
+
+</div>
+

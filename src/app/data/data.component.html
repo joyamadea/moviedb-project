@@ -1,0 +1,52 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Movies Playing</h1>
+      <p class="lead">Hover over poster for more information</p>
+      <button class="btn btn-dark" (click)="clearStorage()">Logout</button>
+    </div>
+  </div>
+
+
+<div class="d-flex flex-wrap justify-content-center" *ngIf='!adult'>
+    <div class="card m-5" *ngFor='let movie of movies.results' style="width:250px;">
+        <div class="dispHover">
+            <img class="card-img-top image" style="height:372px;"src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}">
+            <div class="overlay">
+              <div class="text">
+                <div>
+                    Release date: {{movie.release_date}}<br><br>
+                </div>
+                <div>
+                    Popularity: {{movie.popularity}}<br><br>
+                </div>
+                <div>
+                    Vote Average: <br>{{movie.vote_average}}<br><br>
+                </div>
+                <div>
+                    Vote Count: <br>{{movie.vote_count}}<br><br>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+        
+        <div class="card-body">
+          <div style="width:100%;height:100px;text-align:center">
+              <h5 class="card-title align-text-middle" style="text-align:center;height:85px;vertical-align:middle;">{{movie.title}}</h5>
+
+          </div>
+         
+          <div style="width:100%;text-align:center;">
+              <button style="display:inline-block;" type="button" class="btn btn-secondary mr-2" placement="top" ngbPopover="{{movie.overview}}">
+                  Summary
+              </button>
+
+          </div>
+                
+            
+      </div>
+      
+     
+    </div>
+    
+</div>
